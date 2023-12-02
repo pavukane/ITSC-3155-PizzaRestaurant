@@ -3,12 +3,12 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class CrustBase(BaseModel):
+class ToppingBase(BaseModel):
     name: str
     price: float
 
 
-class Crust(CrustBase):
+class Topping(ToppingBase):
     id: int
 
     class ConfigDict:
