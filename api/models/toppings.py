@@ -4,11 +4,11 @@ from datetime import datetime
 from ..dependencies.database import Base
 
 
-class Resource(Base):
-    __tablename__ = "resources"
+class Topping(Base):
+    __tablename__ = "toppings"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    item = Column(String(100), unique=True, nullable=False)
-    amount = Column(Integer, index=True, nullable=False, server_default='0.0')
+    name = Column(String, index=True)
+    price = Column(DECIMAL(10, 2), nullable=False, server_default='0.0')
 
-    recipes = relationship("Recipe", back_populates="resource")
+
