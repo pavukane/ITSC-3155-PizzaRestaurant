@@ -8,7 +8,7 @@ class Crust(Base):
     __tablename__ = "crusts"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    name = Column(String, index=True)
+    name = Column(String(50), index=True)
     price = Column(DECIMAL(10, 2), nullable=False, server_default='0.0')
 
 

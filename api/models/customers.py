@@ -8,8 +8,8 @@ class Customer(Base):
     __tablename__ = "customers"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    email = Column(String, unique=True, index=True)
-    phone = Column(String, index=True)
+    name = Column(String(50), index=True)
+    email = Column(String(50), unique=True, index=True)
+    phone = Column(String(50), index=True)
 
     orders = relationship("Order", back_populates="customer")
