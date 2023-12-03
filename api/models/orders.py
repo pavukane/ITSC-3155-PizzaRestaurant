@@ -9,9 +9,8 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     customer_id = Column(Integer, ForeignKey("customers.id"))
-    pizza_id = Column(Integer, ForeignKey("pizzas.id"))
     order_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
     total_price = Column(Integer)
     
     customer = relationship("Customer", back_populates="orders")
-    pizza = relationship("Pizza", back_populates="orders")
+    pizzas = relationship("Pizza", back_populates="orders")
