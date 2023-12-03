@@ -27,4 +27,4 @@ class Pizza(Base):
     toppings = relationship("Topping", secondary=pizza_topping_association, backref="pizzas")
     crusts = relationship("Crust", secondary=pizza_crust_association, backref="pizzas")
 
-    orders = relationship("Order", back_populates="pizza")
+    # orders = relationship("Order", back_populates="pizza")

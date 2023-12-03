@@ -6,8 +6,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 def create(db: Session, request):
     new_order = model.Order(
-        customer_name=request.customer_name,
-        description=request.description
+        customer_name=request.customer_name
     )
     total_price = 0
     pizzas_data = []
