@@ -6,12 +6,12 @@ from .toppings import Topping
 
 
 class PizzaBase(BaseModel):
-    pass
+    toppings: list[int] = []
+    crusts: list[int] = []
 
 
 class PizzaCreate(PizzaBase):
-    toppings: list[int] = []
-    crusts: list[int] = []
+    pass
 
 
 class PizzaUpdate(BaseModel):
