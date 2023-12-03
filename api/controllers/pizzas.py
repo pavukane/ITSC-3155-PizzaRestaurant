@@ -5,10 +5,23 @@ from sqlalchemy.exc import SQLAlchemyError
 
 
 def create(db: Session, request):
-    t1 = db.query(toppings.Topping).where(toppings.Topping.id == 1).first()
-    t2 = db.query(toppings.Topping).where(toppings.Topping.id == 2).first()
-    new_pizza = model.Pizza()
-    new_pizza.toppings = [t1, t2]
+    price = 0
+
+    toppings_data = []
+    for topping_id in request.toppings:
+        topping = db.query(toppings.Topping).where(toppings.Topping.id == topping_id).first()
+        toppings_data.append(topping)
+        price += topping.price
+
+    crusts_data = []
+    for crust_id in request.crusts:
+        crust = db.query(crusts.Crust).where(crusts.Crust.id == crust_id).first()
+        crusts_data.append(crust)
+        price += crust.price
+
+    new_pizza = model.Pizza(price=price)
+    new_pizza.toppings = toppings_data
+    new_pizza.crusts = crusts_data
 
     try:
         db.add(new_pizza)
