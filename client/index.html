@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pizza Restaurant</title>
+  <meta charset="UTF-8">
+  <title>Build Your Pizza</title>
+  <style>
+    /* Add some basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
+  <h1>Build Your Pizza</h1>
 
+  <form id="pizzaForm">
+    <fieldset id="crustsFieldset">
+      <legend>Choose a Crust (select multiple):</legend>
+      <!-- Crust options will be dynamically added here -->
+    </fieldset>
+
+    <fieldset id="toppingsFieldset">
+      <legend>Choose Toppings (select multiple):</legend>
+      <!-- Toppings will be dynamically added here -->
+    </fieldset>
+
+    <input type="submit" value="Order Pizza">
+  </form>
+
+  <script src="script.js"></script>
+  <script>
+      populateCrusts();
+      populateToppings();
+  </script>
 </body>
 </html>
